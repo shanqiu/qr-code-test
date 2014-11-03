@@ -1,0 +1,45 @@
+<!-- views/signup.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<style>
+		body 		{ padding-top:80px; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+	<h1><span class="fa fa-sign-in"></span> 注册</h1>
+
+	<!-- show any messages that come back with authentication -->
+
+
+	<!-- LOGIN FORM -->
+	<form method="post">
+		<div class="form-group">
+			<label>wechat</label>
+			<input type="text" class="form-control" name="wechat_link">
+		</div>
+		<div class="form-group">
+			<label>ios</label>
+			<input type="text" class="form-control" name="ios_link">
+		</div>
+
+		<button type="submit" class="btn btn-warning btn-lg">注册</button>
+	</form>
+
+	<hr>
+
+	<p>已注册？ <a href="/login">登录</a></p>
+	<p>或者去 <a href="/">主页</a>.</p>
+
+</div>
+
+</div>
+</body>
+</html>
