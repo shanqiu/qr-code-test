@@ -8,6 +8,64 @@
 	<style>
 		body 		{ padding-top:80px; word-wrap:break-word; }
 	</style>
+	<script>
+	<% console.log(project.wechat_link);%>
+	<% res.redirect(project.wechat_link); %>
+
+          var isMobile = {
+              Android: function() {
+                  return navigator.userAgent.match(/Android/i);
+              },
+              BlackBerry: function() {
+                  return navigator.userAgent.match(/BlackBerry/i);
+              },
+              iOS: function() {
+                  return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+              },
+              Opera: function() {
+                  return navigator.userAgent.match(/Opera Mini/i);
+              },
+              Windows: function() {
+                  return navigator.userAgent.match(/IEMobile/i);
+              },
+              any: function() {
+                  return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+              }
+
+          };
+
+          var is_weixn = function(){
+
+          var ua = navigator.userAgent.toLowerCase();
+
+            if(ua.match(/MicroMessenger/i)=="micromessenger") {
+
+            document.location.href = "http://www.baidu.com";
+
+            console.log("weixin");
+            return true;
+
+            } else {  
+            console.log("noweixin");    
+              if ( isMobile.Android() ) {
+                      document.location.href = "http://www.bingying.com";
+                  }
+              else if(isMobile.iOS())
+              {
+              document.location.href="http://www.google.com";
+              }else{
+
+              
+              }
+            return false;
+
+            }
+
+          };
+
+          is_weixn();
+
+    </script>
 </head>
 <body>
 <div class="container">
@@ -19,7 +77,10 @@
 
 	<div class="row">
 		<div class="col-sm-6">
-
+				<p>
+						<strong>id</strong>:<div id = "id"> <%= project._id %></div><br>
+						<strong>wechat</strong>: <div id = "wechat_link"><%= project.wechat_link %></div><br>						
+				</p>
 		</div>
 
 	</div>

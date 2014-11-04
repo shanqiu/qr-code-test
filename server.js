@@ -38,13 +38,19 @@ app.get('/', function(req, res) {
 });
 
 app.get('/project/:project', function(req, res) {
+
 	User.find({ _id : req.params.project }, function(err, doc) { 
-        var projectObj = res.json(doc); 
-        console.log("aow"+doc[0].wechat_link);
+        //var projectObj = res.json(doc); 
+        // projectObj = doc; 
+        console.log("aow"+doc);
+        //var some = doc; 
+        res.render('project.ejs', {
+        req : req, res : res,
+		project : doc[0] // get the user out of session and pass to template
+		});
     });
-	res.render('project.ejs', {
-		user : req.params.project // get the user out of session and pass to template
-	});
+
+
 });
 
 // app.router('/profile')
